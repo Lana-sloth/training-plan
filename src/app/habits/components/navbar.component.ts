@@ -7,8 +7,14 @@ import { Workout } from '../models/habits.models';
   styleUrls: ['../../app.component.css'],
   template: `
     <div>Choose your program:</div> 
-    <button (click)='onChoose("assassin")'>Assassin</button>
-    <button (click)='onChoose("ninja")'>Ninja</button>
+    <button (click)='onChoose("guardian")'>guardian</button>
+    <button (click)='onChoose("gladiator")'>gladiator</button>
+    <button (click)='onChoose("assassin")'>assassin</button>
+    <button (click)='onChoose("amazon")'>amazon</button>
+    <button (click)='onChoose("fighter")'>fighter</button>
+    <button (click)='onChoose("ninja")'>ninja</button>
+    <button (click)='onChoose("knight")'>knight</button>
+    <button (click)='onChoose("runner")'>runner</button>
     <hr>
   `
 })
