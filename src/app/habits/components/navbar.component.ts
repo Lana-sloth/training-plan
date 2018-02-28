@@ -6,7 +6,7 @@ import { Workout } from '../models/habits.models';
   selector: 'navbar',
   styleUrls: ['../../app.component.css'],
   template: `
-    <div>Choose your program:</div> 
+    <div>Choose your training program:</div> 
     <button (click)='onChoose("guardian")'>guardian</button>
     <button (click)='onChoose("gladiator")'>gladiator</button>
     <button (click)='onChoose("assassin")'>assassin</button>
