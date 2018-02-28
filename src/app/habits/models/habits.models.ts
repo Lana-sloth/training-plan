@@ -1,6 +1,6 @@
 export interface Workout {
     title: string,
-    exersises: Exersise[]
+    exersises: any
 }
 
 export interface Exersise {
