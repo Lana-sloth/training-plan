@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Workout } from './models/habits.models'
+import { Workout } from './models/habits.models';
 
 @Component({
   selector: 'habits',
   styleUrls: ['../app.component.css'],
   template: `
+    <navbar></navbar>
     <h1>{{ workout.title }}</h1>
     <div 
     *ngFor='let exersise of workout.exersises'
