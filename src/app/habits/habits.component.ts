@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Workout } from './models/habits.models'
+
 @Component({
   selector: 'habits',
   styleUrls: ['../app.component.css'],
@@ -17,7 +19,7 @@ export class HabitsComponent {
         let today = new Date().getDay();
         if (today == day) return true;
     }
-    assassin = {
+    assassin: Workout = {
         title: 'Assassin',
         exersises: [
             {workout:'High Birn / HIIT workout', day:'Mo', index:1},
