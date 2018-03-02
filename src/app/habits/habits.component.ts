@@ -6,13 +6,18 @@ import { Workout } from './models/habits.models';
   selector: 'habits',
   styleUrls: ['../app.component.css'],
   template: `
-    <navbar (choose)='chooseHandler($event)'></navbar>
-    <div *ngIf='workout'>
-        <h1>{{ workout.title | titlecase }}</h1>
+    <navbar 
+    (choose)='chooseHandler($event)'
+    [workouts]='this.workouts'
+    [chosenWorkout]='this.chosenWorkout'>
+    </navbar>
+
+    <div *ngIf='chosenWorkout'>
+        <h1> {{ chosenWorkout.title | titlecase }} </h1>
         <div 
-        *ngFor='let exersise of workout.exersises'
+        *ngFor='let exersise of chosenWorkout.exersises'
         [style.backgroundColor]='(getDayOfWeek(exersise.index) ? "#cceeff":"#fff")'>
-            {{ exersise.day }}:  
+            <span> {{ exersise.day }}: </span>  
 
             <span *ngIf='!exersise.workout.combine'>
                 <a *ngIf='exersise.workout.link' href='{{ exersise.workout.link }}'>{{ exersise.workout.name }}</a>
@@ -155,11 +160,11 @@ export class HabitsComponent {
             ]
         }
     ]
-    workout: Workout = this.workouts[0];
+    chosenWorkout: Workout = this.workouts[0];
     chooseHandler(event){
         let list = this.workouts;
         for(let i = 0; i < list.length; i++){
-            if(event == list[i].title) this.workout = list[i];
+            if(event == list[i].title) this.chosenWorkout = list[i];
         }
     }
 }

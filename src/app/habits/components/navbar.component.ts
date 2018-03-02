@@ -7,25 +7,30 @@ import { Workout } from '../models/habits.models';
   styleUrls: ['../../app.component.css'],
   template: `
     <div>Choose your training program:</div> 
-    <button (click)='onChoose("guardian")'>guardian</button>
-    <button (click)='onChoose("gladiator")'>gladiator</button>
-    <button (click)='onChoose("assassin")'>assassin</button>
-    <button (click)='onChoose("amazon")'>amazon</button>
-    <button (click)='onChoose("fighter")'>fighter</button>
-    <button (click)='onChoose("ninja")'>ninja</button>
-    <button (click)='onChoose("knight")'>knight</button>
-    <button (click)='onChoose("runner")'>runner</button>
+    <select [(ngModel)]='chosenWorkout.title' (ngModelChange)='onChoose($event)'>
+        <option 
+        *ngFor='let workout of workouts'
+        [ngValue]='workout.title'>
+            {{ workout.title }}
+        </option>
+    </select>
     <hr>
   `
 })
 export class NavbarComponent { 
-    workout: Workout;
+    @Input()
+    chosenWorkout: Workout;
+    @Input()
+    workouts: Workout[]
 
     @Output()
     choose: EventEmitter<any> = new EventEmitter();
 
     onChoose(chosen){
-        this.choose.emit(this.workout = chosen);
+        console.log('previous selected: ' + this.chosenWorkout);
+        console.log('selected: ' + chosen);
+        this.choose.emit(this.chosenWorkout = chosen);
+        console.log('chosen workout now is: ' + this.chosenWorkout);
     }
 
  }
