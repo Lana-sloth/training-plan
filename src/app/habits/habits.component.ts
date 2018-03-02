@@ -161,6 +161,7 @@ export class HabitsComponent {
         }
     ]
     chosenWorkout: Workout = this.workouts[0];
+    
     chooseHandler(event){
         let list = this.workouts;
         for(let i = 0; i < list.length; i++){
