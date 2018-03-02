@@ -6,15 +6,16 @@ import { Workout } from '../models/habits.models';
   selector: 'navbar',
   styleUrls: ['../../app.component.css'],
   template: `
-    <div>Choose your training program:</div> 
-    <select #x (change)='onChoose(x.value)'>
-        <option 
-        *ngFor='let workout of workouts'
-        [value]='workout.title'>
-            {{ workout.title }}
-        </option>
-    </select>
-    <hr>
+    <nav>
+        <span>Choose your training program:</span> 
+        <select #x (change)='onChoose(x.value)'>
+            <option 
+            *ngFor='let workout of workouts'
+            [value]='workout.title'>
+                {{ workout.title }}
+            </option>
+        </select>
+    </nav>
   `
 })
 export class NavbarComponent { 

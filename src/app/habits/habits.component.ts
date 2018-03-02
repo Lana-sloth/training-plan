@@ -6,32 +6,37 @@ import { Workout } from './models/habits.models';
   selector: 'habits',
   styleUrls: ['../app.component.css'],
   template: `
-    <navbar 
-    (choose)='chooseHandler($event)'
-    [workouts]='this.workouts'
-    [chosenWorkout]='this.chosenWorkout'>
-    </navbar>
-
-    <div *ngIf='chosenWorkout'>
-        <h1> {{ chosenWorkout.title | titlecase }} </h1>
-        <div 
-        *ngFor='let exersise of chosenWorkout.exersises'
-        [style.backgroundColor]='(getDayOfWeek(exersise.index) ? "#cceeff":"#fff")'>
-            <span> {{ exersise.day }}: </span>  
-
-            <span *ngIf='!exersise.workout.combine'>
-                <a *ngIf='exersise.workout.link' href='{{ exersise.workout.link }}'>{{ exersise.workout.name }}</a>
-                <span *ngIf='!exersise.workout.link'>{{ exersise.workout.name }}</span>
-            </span>
-            
-            <span *ngIf='exersise.workout.combine'>
-                <a *ngIf='exersise.workout.firstLink' href='{{ exersise.workout.firstLink }}'>{{ exersise.workout.firstName }}</a>
-                <span *ngIf='!exersise.workout.firstLink'>{{ exersise.workout.firstName }}</span> or
-                <a *ngIf='exersise.workout.secondLink' href='{{ exersise.workout.secondLink }}'>{{ exersise.workout.secondName }}</a>
-                <span *ngIf='!exersise.workout.secondLink'>{{ exersise.workout.secondName }}</span>
-            </span>
-
+    <div class='container'>
+        <navbar 
+        (choose)='chooseHandler($event)'
+        [workouts]='this.workouts'
+        [chosenWorkout]='this.chosenWorkout'>
+        </navbar>
+    
+        <div *ngIf='chosenWorkout'>
+            <h1> {{ chosenWorkout.title | titlecase }} </h1>
+            <div 
+            *ngFor='let exersise of chosenWorkout.exersises'
+            [style.backgroundColor]='(getDayOfWeek(exersise.index) ? "#cceeff":"#fff")'>
+                <div class='dayOfWeek'> {{ exersise.day }}: </div>  
+    
+                <span *ngIf='!exersise.workout.combine'>
+                    <a *ngIf='exersise.workout.link' href='{{ exersise.workout.link }}' target='_blank'>{{ exersise.workout.name }}</a>
+                    <span *ngIf='!exersise.workout.link'>{{ exersise.workout.name }}</span>
+                </span>
+                
+                <span *ngIf='exersise.workout.combine'>
+                    <a *ngIf='exersise.workout.firstLink' href='{{ exersise.workout.firstLink }}' target='_blank'>{{ exersise.workout.firstName }}</a>
+                    <span *ngIf='!exersise.workout.firstLink'>{{ exersise.workout.firstName }}</span> or
+                    <a *ngIf='exersise.workout.secondLink' href='{{ exersise.workout.secondLink }}' target='_blank'>{{ exersise.workout.secondName }}</a>
+                    <span *ngIf='!exersise.workout.secondLink'>{{ exersise.workout.secondName }}</span>
+                </span>
+    
+            </div>
         </div>
+        <footer>
+            <a href='https://darebee.com/'>darebee.com</a>
+        </footer>
     </div>
   `
 })
@@ -161,7 +166,7 @@ export class HabitsComponent {
         }
     ]
     chosenWorkout: Workout = this.workouts[0];
-    
+
     chooseHandler(event){
         let list = this.workouts;
         for(let i = 0; i < list.length; i++){
