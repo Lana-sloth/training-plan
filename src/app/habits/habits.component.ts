@@ -35,7 +35,7 @@ import { Workout } from './models/habits.models';
             </div>
         </div>
         <footer>
-            <a href='https://darebee.com/'>darebee.com</a>
+            <div> The training plans are taken from <a href='https://darebee.com/'>darebee.com</a></div>
         </footer>
     </div>
   `
