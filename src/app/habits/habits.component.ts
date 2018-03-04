@@ -77,7 +77,7 @@ export class HabitsComponent {
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Th', index:4},
                 {workout: this.activities.strength, day:'Fr', index:5},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -89,7 +89,7 @@ export class HabitsComponent {
                 {workout: this.activities.lower, day:'Th', index:4},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Fr', index:5},
                 {workout: this.activities.strength, day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -101,7 +101,7 @@ export class HabitsComponent {
                 {workout: this.combine(this.activities.highBirn, this.activities.hiit), day:'Th', index:4},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Fr', index:5},
                 {workout: this.combine(this.activities.highBirn, this.activities.hiit), day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -113,7 +113,7 @@ export class HabitsComponent {
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Th', index:4},
                 {workout: this.activities.strength, day:'Fr', index:5},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Sa', index:6},
-                {workout: this.activities.highBirn, day:'Su', index:7}
+                {workout: this.activities.highBirn, day:'Su', index:0}
             ]
         },
         {
@@ -125,7 +125,7 @@ export class HabitsComponent {
                 {workout: this.activities.strength, day:'Th', index:4},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Fr', index:5},
                 {workout: this.activities.combat, day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -137,7 +137,7 @@ export class HabitsComponent {
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Th', index:4},
                 {workout: this.combine(this.activities.highBirn, this.activities.combat), day:'Fr', index:5},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -149,7 +149,7 @@ export class HabitsComponent {
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Th', index:4},
                 {workout: this.activities.strength, day:'Fr', index:5},
                 {workout: this.combine(this.activities.rest, this.activities.casual), day:'Sa', index:6},
-                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:7}
+                {workout: this.combine(this.activities.rest, this.activities.casual), day:'Su', index:0}
             ]
         },
         {
@@ -161,7 +161,7 @@ export class HabitsComponent {
                 {workout: this.activities.running, day:'Th', index:4},
                 {workout: this.combine(this.activities.rest, this.activities.lightRun), day:'Fr', index:5},
                 {workout: this.activities.running, day:'Sa', index:6},
-                {workout: this.activities.rest, day:'Su', index:7}
+                {workout: this.activities.rest, day:'Su', index:0}
             ]
         }
     ]
