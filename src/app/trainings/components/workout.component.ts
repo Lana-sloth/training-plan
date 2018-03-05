@@ -63,7 +63,7 @@ import { Plan } from '../models/trainings.models';
 })
 export class WorkoutComponent { 
   @Input()
-  workouts: Workout[];
+  plans: Workout[];
 
   @Input()
   chosenPlan: Plan;
