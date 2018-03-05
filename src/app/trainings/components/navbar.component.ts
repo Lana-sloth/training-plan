@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Workout } from '../models/habits.models';
+import { Plan } from '../models/trainings.models';
 
 @Component({
   selector: 'navbar',
@@ -10,9 +10,9 @@ import { Workout } from '../models/habits.models';
         <span>Choose your training program:</span> 
         <select #x (change)='onChoose(x.value)'>
             <option 
-            *ngFor='let workout of workouts'
-            [value]='workout.title'>
-                {{ workout.title }}
+            *ngFor='let plan of plans'
+            [value]='plan.title'>
+                {{ plan.title }}
             </option>
         </select>
     </nav>
@@ -20,15 +20,15 @@ import { Workout } from '../models/habits.models';
 })
 export class NavbarComponent { 
     @Input()
-    chosenWorkout: Workout;
+    chosenPlan: Plan;
     @Input()
-    workouts: Workout[]
+    plans: Plan[]
 
     @Output()
     choose: EventEmitter<any> = new EventEmitter();
 
     onChoose(chosen){
-        this.choose.emit(this.chosenWorkout = chosen);
+        this.choose.emit(this.chosenPlan = chosen);
     }
 
  }

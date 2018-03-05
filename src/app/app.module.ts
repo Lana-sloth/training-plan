@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HabitsModule } from './habits/habits.module';
+import { TrainingsModule } from './trainings/trainings.module';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { HabitsModule } from './habits/habits.module';
   ],
   imports: [
     BrowserModule,
-    HabitsModule
+    TrainingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

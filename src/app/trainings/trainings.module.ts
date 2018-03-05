@@ -2,19 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { HabitsComponent } from './habits.component';
+import { TrainingsComponent } from './trainings.component';
 import { NavbarComponent } from './components/navbar.component';
+import { WorkoutComponent } from './components/workout.component';
 
 @NgModule({
   declarations: [
-    HabitsComponent,
-    NavbarComponent
+    TrainingsComponent,
+    NavbarComponent,
+    WorkoutComponent
   ],
   imports: [
     CommonModule,
     FormsModule
   ],
   providers: [],
-  exports: [HabitsComponent]
+  exports: [TrainingsComponent]
 })
-export class HabitsModule { }
+export class TrainingsModule { }

@@ -1,10 +1,10 @@
-export interface Workout {
+export interface Plan {
     title: string,
-    exersises: Exersise[]
+    workouts: Workout[]
 }
 
-export interface Exersise {
-    workout: Activity | Combined,
+export interface Workout {
+    activity: Activity | Combined,
     day: string,
     index: number
 }

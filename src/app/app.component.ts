@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
   template: `
-  <habits></habits>
+  <trainings></trainings>
   `
 })
 export class AppComponent {}
