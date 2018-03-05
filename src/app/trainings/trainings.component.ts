@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Plan } from './models/trainings.models';
-import { Workout } from './models/trainings.models'
+import { Plan, Workout, Activity } from './models/trainings.models';
+import { TrainingsService } from './trainings.service';
 
 @Component({
   selector: 'trainings',
@@ -28,8 +28,13 @@ import { Workout } from './models/trainings.models'
   `
 })
 export class TrainingsComponent implements OnInit { 
-    activities: any;
+    activities: any;   
     plans: Plan[];
+
+    constructor(private trainingsService: TrainingsService){
+        this.activities = trainingsService.getActivities();
+    }
+
     chosenPlan: Plan;
 
     // when two plan variants
@@ -53,19 +58,8 @@ export class TrainingsComponent implements OnInit {
     }
 
     ngOnInit(){
-        this.activities = {
-            strength: {name:'Strength workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=strength&page=1'},
-            highBirn: {name:'High Birn workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=cardio&attr.ct14.value=normal&page=1'},
-            hiit: {name:'HIIT workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=hiit&page=1'},
-            casual: {name:'Casual training', link:'https://darebee.com/fitness/casual-training.html'},
-            combat: {name:'Combat workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=combat&page=1'},
-            upper: {name:'Upperbody workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct10.value=upper-body&page=1'},
-            lower: {name:'Lowerbody workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct10.value=lower-body&page=1'},
-            rest: {name:'Rest', link:''},
-            lightRun: {name:'light recovery run', link:''},
-            running: {name:'Running', link:''}
-        }
-
+        this.activities = this.activities;
+        
         this.plans = [
             {
                 title: 'guardian',

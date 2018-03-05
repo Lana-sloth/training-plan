@@ -6,6 +6,8 @@ import { TrainingsComponent } from './trainings.component';
 import { NavbarComponent } from './components/navbar.component';
 import { WorkoutComponent } from './components/workout.component';
 
+import { TrainingsService } from './trainings.service';
+
 @NgModule({
   declarations: [
     TrainingsComponent,
@@ -16,7 +18,7 @@ import { WorkoutComponent } from './components/workout.component';
     CommonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [TrainingsService],
   exports: [TrainingsComponent]
 })
 export class TrainingsModule { }
