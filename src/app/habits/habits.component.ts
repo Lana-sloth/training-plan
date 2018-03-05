@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Workout } from './models/habits.models';
+import { Exersise } from './models/habits.models'
 
 @Component({
   selector: 'habits',
@@ -19,17 +20,19 @@ import { Workout } from './models/habits.models';
             *ngFor='let exersise of chosenWorkout.exersises'
             [style.backgroundColor]='(getDayOfWeek(exersise.index) ? "#cceeff":"#fff")'>
                 <div class='dayOfWeek'> {{ exersise.day }}: </div>  
-    
-                <span *ngIf='!exersise.workout.combine'>
-                    <a *ngIf='exersise.workout.link' href='{{ exersise.workout.link }}' target='_blank'>{{ exersise.workout.name }}</a>
-                    <span *ngIf='!exersise.workout.link'>{{ exersise.workout.name }}</span>
+
+                <!-- One workout variant -->
+                <span *ngIf='!renderWorkout(exersise.workout).combine'>
+                    <a *ngIf='renderWorkout(exersise.workout).link' href='{{ renderWorkout(exersise.workout).link }}' target='_blank'>{{ renderWorkout(exersise.workout).name }}</a>
+                    <span *ngIf='!renderWorkout(exersise.workout).link'>{{ renderWorkout(exersise.workout).name }}</span>
                 </span>
-                
-                <span *ngIf='exersise.workout.combine'>
-                    <a *ngIf='exersise.workout.firstLink' href='{{ exersise.workout.firstLink }}' target='_blank'>{{ exersise.workout.firstName }}</a>
-                    <span *ngIf='!exersise.workout.firstLink'>{{ exersise.workout.firstName }}</span> or
-                    <a *ngIf='exersise.workout.secondLink' href='{{ exersise.workout.secondLink }}' target='_blank'>{{ exersise.workout.secondName }}</a>
-                    <span *ngIf='!exersise.workout.secondLink'>{{ exersise.workout.secondName }}</span>
+
+                <!-- Two workout variants -->
+                <span *ngIf='renderWorkout(exersise.workout).combine'>
+                    <a *ngIf='renderWorkout(exersise.workout).firstLink' href='{{ renderWorkout(exersise.workout).firstLink }}' target='_blank'>{{ renderWorkout(exersise.workout).firstName }}</a>
+                    <span *ngIf='!renderWorkout(exersise.workout).firstLink'>{{ renderWorkout(exersise.workout).firstName }}</span> or
+                    <a *ngIf='renderWorkout(exersise.workout).secondLink' href='{{ renderWorkout(exersise.workout).secondLink }}' target='_blank'>{{ renderWorkout(exersise.workout).secondName }}</a>
+                    <span *ngIf='!renderWorkout(exersise.workout).secondLink'>{{ renderWorkout(exersise.workout).secondName }}</span>
                 </span>
     
             </div>
@@ -41,10 +44,13 @@ import { Workout } from './models/habits.models';
   `
 })
 export class HabitsComponent { 
+    // checks if this day is today
     getDayOfWeek(day){
         let today = new Date().getDay();
         if (today == day) return true;
     }
+
+    // when two workout variants
     combine(a, b){
         let list = this.activities
         return {
@@ -55,6 +61,12 @@ export class HabitsComponent {
             secondLink: b.link
         }
     }
+    
+    // checks if it's a single or combined workout
+    renderWorkout(a){
+        return a;
+    }
+
     activities = {
         strength: {name:'Strength workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=strength&page=1'},
         highBirn: {name:'High Birn workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=cardio&attr.ct14.value=normal&page=1'},
@@ -166,7 +178,8 @@ export class HabitsComponent {
         }
     ]
     chosenWorkout: Workout = this.workouts[0];
-
+    
+    // gets chosen workout from the navbar
     chooseHandler(event){
         let list = this.workouts;
         for(let i = 0; i < list.length; i++){
