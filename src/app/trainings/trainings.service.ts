@@ -1,5 +1,9 @@
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+
+@Injectable()
 export class TrainingsService {
-    constructor(){}
+    constructor(private http: Http){}
     getActivities(){
         return {
             strength: {name:'Strength workout', link:'https://darebee.com/wods.html#sort=position&sortdir=desc&attr.ct16.value=strength&page=1'},
@@ -13,8 +17,5 @@ export class TrainingsService {
             lightRun: {name:'light recovery run', link:''},
             running: {name:'Running', link:''}
         }
-    }
-    getPlans(){
-        return 
     }
 }

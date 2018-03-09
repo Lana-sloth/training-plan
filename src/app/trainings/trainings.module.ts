@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { TrainingsComponent } from './trainings.component';
 import { NavbarComponent } from './components/navbar.component';
@@ -16,7 +17,8 @@ import { TrainingsService } from './trainings.service';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [TrainingsService],
   exports: [TrainingsComponent]
